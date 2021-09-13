@@ -12,16 +12,6 @@ export default function App() {
   useEffect(() => setContacts(loadContacts()), []);
 
   useEffect(() => saveContacts(contacts), [contacts]);
-  // const componentDidMount = () => {
-  //   const contacts = loadContacts();
-  //   this.setState({ contacts });
-  // };
-
-  // const componentDidUpdate = (_prevProps, prevState) => {
-  //   if (prevState.contacts !== this.state.contacts) {
-  //     saveContacts(this.state.contacts);
-  //   }
-  // };
 
   const createContact = (e) => {
     const { name, number } = e;
