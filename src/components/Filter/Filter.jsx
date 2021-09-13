@@ -1,29 +1,22 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 import { Label } from "./Filter.styled";
-export class Filter extends Component {
-  state = { filter: "" };
+export function Filter({ onFilter }) {
+  const [filter, setFilter] = useState("");
 
-  handleOnChange = ({ target: { name, value } }) => {
-    const filter = { [name]: value.toLowerCase() };
-    this.setState(filter);
-    this.props.onFilter(filter);
+  const handleOnChange = ({ target: { value } }) => {
+    const filter = value.toLowerCase();
+    setFilter(filter);
+    onFilter(filter);
   };
 
-  render() {
-    const { filter } = this.state;
-    return (
-      <Label>
-        Find contacts by name
-        <input
-          name="filter"
-          value={filter}
-          onChange={this.handleOnChange}
-        ></input>
-      </Label>
-    );
-  }
+  return (
+    <Label>
+      Find contacts by name
+      <input name="filter" value={filter} onChange={handleOnChange}></input>
+    </Label>
+  );
 }
 
 Filter.propTypes = {

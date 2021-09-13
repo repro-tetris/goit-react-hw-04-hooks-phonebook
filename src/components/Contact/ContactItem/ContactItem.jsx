@@ -1,17 +1,13 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import { StyledContact } from "./ContactItem.styled";
-class ContactItem extends Component {
-  render() {
-    const { name, number, onDelete } = this.props;
-    return (
-      <StyledContact>
-        {name}: {number}
-        <button onClick={onDelete}>delete</button>
-      </StyledContact>
-    );
-  }
+
+function ContactItem({ name, number, onDelete }) {
+  return (
+    <StyledContact>
+      {name}: {number}
+      <button onClick={onDelete}>delete</button>
+    </StyledContact>
+  );
 }
 
 ContactItem.propTypes = {
