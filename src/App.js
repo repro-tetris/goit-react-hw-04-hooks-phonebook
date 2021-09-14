@@ -6,10 +6,8 @@ import { ContactList } from "./components/Contact";
 import { saveContacts, loadContacts } from "./components/utils/storage";
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => loadContacts());
   const [filter, setFilter] = useState("");
-
-  useEffect(() => setContacts(loadContacts()), []);
 
   useEffect(() => saveContacts(contacts), [contacts]);
 
